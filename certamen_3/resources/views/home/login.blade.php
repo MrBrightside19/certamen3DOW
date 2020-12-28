@@ -44,7 +44,7 @@
                             @csrf
                             <div class="form-group col-12">
                                 <label for="email">Email:</label><br>
-                                <input type="email" id="email" value="ejemplo@usm.cl" class="form-control" name="email" required>
+                                <input type="email" id="email" placeholder="ejemplo@usm.cl" class="form-control" name="email" required>
                             </div>
                             <div class="form-group">
                                 <div class="form-group col-12">

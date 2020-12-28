@@ -35,4 +35,9 @@ class HomeController extends Controller
     {
         return view('home.login');
     }
+
+    public function faq()
+    {
+        return view('faq.index');
+    }
 }

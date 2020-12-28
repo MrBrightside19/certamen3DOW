@@ -37,7 +37,10 @@
                 <a class="nav-link text-light" href="{{route('autos.index')}}">Vehículos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="# {{--{{route('resultados.html')}}--}}">F.A.Q</a>
+                <a class="nav-link text-light" href="{{route('clientes.index')}}">Clientes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="{{route('faq.index')}}">F.A.Q</a>
             </li>
         </ul>
         <a href="#" class="btn btn-outline-ligth text-light btn-sm ml-auto mr-1" role="button">
