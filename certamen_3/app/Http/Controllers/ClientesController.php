@@ -43,6 +43,7 @@ class ClientesController extends Controller
         $cliente->edad = $request->edad;
         $cliente->email = $request->email ;
         $cliente->save();
+
         return redirect()->route('clientes.index');
     }
 

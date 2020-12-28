@@ -14,12 +14,17 @@ class CreateArriendosTable extends Migration
     public function up()
     {
         Schema::create('arriendos', function (Blueprint $table) {
-            $table->id();
-            $table->boolean('origen');
-            $table->boolean('destino');
+            $table->integer('origen');
+            $table->integer('destino');
             $table->date('fecha_origen');
             $table->date('fecha_destino');
-
+            $table->unsignedBigInteger('auto_id');
+            $table->unsignedBigInteger('cliente_id');
+            
+            $table->primary(['auto_id', 'cliente_id']);
+            
+            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('auto_id')->references('id')->on('autos');
             $table->timestamps();
         });
     }

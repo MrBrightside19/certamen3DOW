@@ -57,15 +57,15 @@
                             <div class="col-md-6 form-group ">
                                 <label>Transmisión</label>
                                 <br>
+                                <div class="col-4 offset-1 pt-2">
+                                    <input value="b" type="radio" class="form-check-input" name="transmision" id="transmision2" checked>
+                                    <label for="transmision2" class="form-check-label">Manual</label>
+                                </div>  
                                 <div class="col-4 offset-1 pt-2">    
                                     <input value="a" type="radio" class="form-check-input" name="transmision" id="transmision1">
                                     <label for="transmision1" class="form-check-label">Automático</label>
                                 </div>
                                 
-                                <div class="col-4 offset-1 pt-2">
-                                    <input value="b" type="radio" class="form-check-input" name="transmision" id="transmision2">
-                                    <label for="transmision2" class="form-check-label">Manual</label>
-                                </div>  
                             </div>
                             <div class="col-md-6 form-group ">
                                 <label class="form-check-label">Estado</label>
@@ -89,7 +89,6 @@
                                     </div>
                             </div>
                         </div>
-                        <br>
 
                         <div class="form-group pt-4">
                             <label for="descripcion">Descripción</label>
@@ -180,12 +179,12 @@
                     <div class="form-row">
                         <div class="col-md-6 form-group">
                             <label for="patente" class="col-form-label">Patente</label>
-                            <input type="text" id="patente" name="patente" class="form-control"  required>
+                            <input type="text" id="patente" name="patente" class="form-control" value="{{$auto->patente }}" required>
                         </div>
                         
                         <div class="col-md-6 form-group">
                             <label for="anio" class="col-form-label">Año</label>
-                            <input type="text" id="anio" name="anio" class="form-control"  required>
+                            <input type="text" id="anio" name="anio" class="form-control" value="{{$auto->anio }}" required>
                         </div>
                         
                     </div>
@@ -198,7 +197,7 @@
                         <div class="col-md-6 form-group">
                             <label for="tipovehiculo" class="col-form-label">Marca y Modelo</label>
                             <select name="tipovehiculo" class="form-control">
-                                <option value="">Seleccione una opcion... </option>
+                                <option value="{{$auto->tiposvehiculo->id}}">Seleccione una opcion... </option>
                                 @foreach ($tiposvehiculos as $tipo)
                                     <option value="{{$tipo->id}}">{{$tipo->marca}}/{{$tipo->modelo}}</option>
                                 @endforeach
@@ -210,40 +209,40 @@
                             <label>Transmisión</label>
                             <br>
                             <div class="col-4 offset-1 pt-2">    
-                                <input value="a" type="radio" class="form-check-input" name="transmision" id="transmision1">
+                                <input value="a" type="radio" class="form-check-input" name="transmision" id="transmision1" @if ($auto->transmision == 'a') checked  @endif>
                                 <label for="transmision1" class="form-check-label">Automático</label>
                             </div>
                             
                             <div class="col-4 offset-1 pt-2">
-                                <input value="b" type="radio" class="form-check-input" name="transmision" id="transmision2">
+                                <input value="b" type="radio" class="form-check-input" name="transmision" id="transmision2" @if ($auto->transmision == 'b') checked  @endif> 
                                 <label for="transmision2" class="form-check-label">Manual</label>
                             </div>  
                         </div>
                         <div class="col-md-6 form-group ">
                             <label class="form-check-label">Estado</label>
-                                <div class="col-6 pt-3">   
-                                    <input value="d" type="radio" class="form-check-input" name="estado" checked id="estado1">
-                                    <label for="estado1" class="form-check-label">Disponible</label>
-                                </div>
-                                
-                                <div class="col-6 pt-3">
-                                    <input value="a" type="radio" class="form-check-input" name="estado" id="estado2">
-                                    <label for="estado2" class="form-check-label">Arrendado</label>
-                                </div>
-                                <div class="col-6  pt-3">    
-                                    <input value="m" type="radio" class="form-check-input" name="estado" id="estado3">
-                                    <label for="estado3" class="form-check-label">Mantenimiento</label>
-                                </div>
-                                
-                                <div class="col-6 pt-3">
-                                    <input value="b" type="radio" class="form-check-input" name="estado" id="estado4">
-                                    <label for="estado4" class="form-check-label">De Baja</label>
-                                </div>
+                            <div class="col-6 pt-3">   
+                                <input value="d" type="radio" class="form-check-input" name="estado" checked id="estado1" @if ($auto->estado == 'd') checked  @endif>
+                                <label for="estado1" class="form-check-label">Disponible</label>
+                            </div>
+                            
+                            <div class="col-6 pt-3">
+                                <input value="a" type="radio" class="form-check-input" name="estado" id="estado2" @if ($auto->estado == 'a') checked  @endif>
+                                <label for="estado2" class="form-check-label">Arrendado</label>
+                            </div>
+                            <div class="col-6  pt-3">    
+                                <input value="m" type="radio" class="form-check-input" name="estado" id="estado3" @if ($auto->estado == 'm') checked  @endif>
+                                <label for="estado3" class="form-check-label">Mantenimiento</label>
+                            </div>
+                            
+                            <div class="col-6 pt-3">
+                                <input value="b" type="radio" class="form-check-input" name="estado" id="estado4" @if ($auto->estado == 'b') checked  @endif>
+                                <label for="estado4" class="form-check-label">De Baja</label>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group m-2 pt-4">
                         <label for="descripcion">Descripción</label>
-                        <textarea class="form-control" name="descripcion" id="descripcion" rows="3" required></textarea>
+                        <textarea class="form-control" name="descripcion" id="descripcion" rows="3"value="{{$auto->descripcion}}" required></textarea>
                     </div>
 
                     <div class="form-group d-flex justify-content-end">
@@ -258,7 +257,7 @@
     </div>  
 </div>
                                     <i class="fas fa-trash btn btn-primary" data-toggle="tooltip" data-placement="top" title="Eliminar"></i>
-                                    <i class="fas fa-glass btn btn-primary" data-toggle="modal" data-target="#mostrar_auto{{ $auto->id }}"></i>
+                                    <i class="far fa-search btn btn-primary" data-toggle="modal" data-target="#mostrar_auto{{ $auto->id }}"></i>
 {{-- Mostrar Fotos Autos --}}
 <div class="modal fade" id="mostrar_auto{{ $auto->id }}">
     <div class="modal-dialog">
