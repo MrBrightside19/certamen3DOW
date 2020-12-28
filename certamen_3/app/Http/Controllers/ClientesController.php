@@ -2,17 +2,11 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Cliente;
 use Illuminate\Http\Request;
-use App\Models\Auto;
-use App\Models\TipoVehiculo;
-use Illuminate\Support\Facades\Storage;
 
-class AutosController extends Controller
+class ClientesController extends Controller
 {
-    public function __construct() {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,9 +14,8 @@ class AutosController extends Controller
      */
     public function index()
     {
-        $autos = Auto::all();
-        $tiposvehiculos = TipoVehiculo::all();
-        return view('autos.index', compact('autos','tiposvehiculos'));
+        $clientes = Cliente::all();
+        return view('clientes.index', compact('clientes'));
     }
 
     /**
@@ -43,16 +36,14 @@ class AutosController extends Controller
      */
     public function store(Request $request)
     {
-        $auto = new Auto();
-        $auto->patente = $request->patente;
-        $auto->anio = $request->anio ;
-        $auto->imagen = $request->imagen->store('public/autos');
-        $auto->descripcion = $request->descripcion ;
-        $auto->estado = $request->estado;
-        $auto->tiposvehiculo_id = $request->tipovehiculo ;
-        $auto->transmision = $request->transmision ;
-        $auto->save();
-        return redirect()->route('autos.index');
+        $cliente = new Cliente();
+        $cliente->nombres = $request->nombres;
+        $cliente->apellidos = $request->apellidos ;
+        $cliente->rut = $request->rut ;
+        $cliente->edad = $request->edad;
+        $cliente->email = $request->email ;
+        $cliente->save();
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -84,16 +75,16 @@ class AutosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Auto $auto)
+    public function update(Request $request, Cliente $cliente)
     {
-        $auto->patente = $request->patente;
-        $auto->anio = $request->anio;
-        $auto->imagen = $request->imagen->store('public/autos');
-        $auto->transmision = $request->transmision;
-        $auto->estado = $request->estado;
-        $auto->touch();
-        $auto->save();
-        return redirect()->route('autos.index');
+        $cliente->nombres = $request->nombres;
+        $cliente->apellidos = $request->apellidos ;
+        $cliente->rut = $request->rut ;
+        $cliente->edad = $request->edad;
+        $cliente->email = $request->email ;
+        $cliente->touch();
+        $cliente->save();
+        return redirect()->route('clientes.index');
     }
 
     /**

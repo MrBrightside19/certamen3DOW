@@ -15,14 +15,16 @@ class CreateAutosTable extends Migration
     {
         Schema::create('autos', function (Blueprint $table) {
             $table->id();
-            $table->string('auto');
-            $table->string('marca');
-            $table->string('modelo');
+            $table->string('patente');
             $table->string('anio');
-            $table->string('clase');
             $table->string('imagen');
-            $table->string('combustible');
+            $table->string('transmision');
+            $table->string('descripcion');
+            $table->char('estado');
+            $table->unsignedBigInteger('tiposvehiculo_id');
+            $table->foreign('tiposvehiculo_id')->references('id')->on('tiposvehiculos');
             $table->timestamps();
+            
         });
     }
 

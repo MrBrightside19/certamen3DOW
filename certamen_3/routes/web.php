@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{UsuariosController, ArriendosController, AutosController};
+use App\Http\Controllers\{UsuariosController, ArriendosController, AutosController,TiposVehiculosController,ClientesController};
 use App\Http\Controllers\HomeController;
 
 /*
@@ -25,8 +25,6 @@ Route::get('/usuarios',[UsuariosController::class, 'index'])->name('usuarios.ind
 
 Route::resource('/usuarios',UsuariosController::class);
 
-
-
 Route::get('/',[HomeController::class, 'index'])->name('home.index');
 Route::get('/login',[HomeController::class, 'login'])->name('home.login');
 
@@ -34,3 +32,11 @@ Route::resource('/arriendos',ArriendosController::class);
 
 Route::post('/autos',[AutosController::class, 'store'])->name('autos.store');
 Route::resource('/autos',AutosController::class);
+//F.A.Q
+Route::get('/faq',[HomeController::class, 'faq'])->name('faq.index');
+
+//CLIENTES
+Route::resource('/clientes',ClientesController::class);
+//Route::get('/clientes',[ClientesController::class,'index'])->name('clientes.index');
+
+Route::resource('/tipos',TiposVehiculosController::class);

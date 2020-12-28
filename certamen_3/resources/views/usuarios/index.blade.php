@@ -67,11 +67,11 @@
                     <thead class="bg-secondary">
                         <tr>
                             <th scope="col" width="20px"><b>Nº</b></th>
-                            <th scope="col">Nombre <i class="far fa-users"></i></th>
-                            <th scope="col">Apellido <i class="far fa-users"></i></th>
+                            <th scope="col">Nombre <i class="far fa-user"></i></th>
+                            <th scope="col">Apellido <i class="far fa-user"></i></th>
                             <th scope="col">Correo <i class="far fa-at"></i></th>
-                            <th scope="col">Tipo Usuario</th>
-                            <th></th>
+                            <th scope="col">Tipo Usuario <i class="far fa-users"></i></th>
+                            <th class="text-center">Opciones</th>
                         </tr>
                     </thead> 
                     <tbody>
@@ -88,7 +88,83 @@
                                         Ejecutivo
                                     @endif
                                 </td>
-                                <td><i class="fas fa-cogs btn btn-primary" data-toggle="tooltip" data-placement="top" title="Modificar"></i></td>
+                                <td class="text-center">
+                                    {{-- <i class="fas fa-cogs btn btn-primary" data-toggle="tooltip" data-placement="top" title="Modificar"></i> --}}
+                                    <i class="fas fa-trash btn btn-primary" data-toggle="tooltip" data-placement="top" title="Eliminar"></i>
+                                    <a href="#" class="btn btn-primary fas fa-cogs" data-toggle="modal" data-target="#modificar_usuario{{$usuario->id}}"></a>
+                                </td>
+{{-- Modificar usuario --}}
+<div class="modal fade" id="modificar_usuario{{$usuario->id}}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Modificar Usuario</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>X</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{{route('usuarios.update', $usuario->id )}}">
+                    @csrf
+                    @method('put')
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" class="form-control"  value="{{$usuario->nombre}}" required>
+                            
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" id="apellido" name="apellido" class="form-control"  value="{{$usuario->apellido}}" required>
+                            
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email" class="form-control"  value="{{$usuario->email}}" required>
+                            
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="password">Contraseña</label>
+                            <input type="password" id="password" name="password" class="form-control"  required>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="form-group ">
+                        <div class="form-check">
+                            
+                            <input type="radio" class="form-check-input" name="rol" id="recordar" value="0"  @if ($usuario->rol == 0) checked  @endif>
+                            <label for="recordar"  class="form-check-label">Administrador</label>
+                            <br>
+                        
+                            <input type="radio" class="form-check-input" name="rol" id="recordar1" value="1" @if ($usuario->rol != 0)  checked  @endif>
+                            <label for="recordar1" class="form-check-label">Ejecutivo</label>
+                            
+                        </div>
+                    </div>
+                    <div class="form-group d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Modificar</button>         
+                        <button type="button" class="btn btn-danger ml-2" data-dismiss="modal">Salir</button>
+                    </div>
+
+
+                </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+        </div>
+    </div>  
+</div>
+
+
+
+
                             </tr>
                         @endforeach
                     </tbody>

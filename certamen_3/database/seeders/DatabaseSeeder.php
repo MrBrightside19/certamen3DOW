@@ -29,6 +29,13 @@ class DatabaseSeeder extends Seeder
             'apellido'=>'Mejias',
             'password'=>Hash::make('5678'),
             'email'=>'mario@gmail.com',
+            'rol'=>'0'
+        ]);
+        DB::table('usuarios')->insert([
+            'nombre'=>'Javier',
+            'apellido'=>'Silva',
+            'password'=>Hash::make('4321'),
+            'email'=>'javier@gmail.com',
             'rol'=>'1'
         ]);
     }
