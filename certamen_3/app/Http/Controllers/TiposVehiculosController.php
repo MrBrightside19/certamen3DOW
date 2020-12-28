@@ -41,6 +41,7 @@ class TiposVehiculosController extends Controller
         $tiposvehiculos->combustible = $request->combustible;
         $tiposvehiculos->motor = $request->motor;
         $tiposvehiculos->clase = $request->clase;
+        $tiposvehiculos->precio = $request->precio;
         $tiposvehiculos->puertas = $request->puertas;
         $tiposvehiculos->save();
         return redirect()->route('autos.index');
@@ -83,6 +84,7 @@ class TiposVehiculosController extends Controller
         $tiposvehiculos->motor = $request->motor;
         $tiposvehiculos->clase = $request->clase;
         $tiposvehiculos->puertas = $request->puertas;
+        $tiposvehiculos->precio = $request->precio;
         $tiposvehiculos->touch();
         $tiposvehiculos->save();
         return redirect()->route('autos.index');

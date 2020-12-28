@@ -13,7 +13,7 @@
     <header>
         <div class="container-fluid">
             <div class="row d-flex">
-                <img src="{{asset('images/BANNER.jpg')}}" class="img-fluid" alt="Responsive image" height="300">
+                <img src="{{asset('images/banner.jpg')}}" class="img-fluid"alt="Responsive image" >
             </div>  
         </div>
     </header>
@@ -56,7 +56,6 @@
 </nav>
     
 @yield('contenido-principal')
-    
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

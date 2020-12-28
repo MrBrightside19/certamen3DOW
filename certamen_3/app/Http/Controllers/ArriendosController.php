@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Arriendo;
+use App\Models\Auto;
+use App\Models\Cliente;
 
 class ArriendosController extends Controller
 {
@@ -15,8 +18,11 @@ class ArriendosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('arriendos.index');
+    {   
+        $arriendos = Arriendo::all();
+        $autos = Auto::all();
+        $clientes = Cliente::all();
+        return view('arriendos.index',compact('arriendos','autos','clientes'));
     }
 
     /**
@@ -37,7 +43,15 @@ class ArriendosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $arriendos = new Arriendo();
+        $arriendos->origen = $request->recogida;
+        $arriendos->destino = $request->entrega;
+        $arriendos->fecha_origen = $request->fechar;
+        $arriendos->fecha_destino = $request->fechae;
+        $arriendos->auto_id = $request->auto;
+        $arriendos->cliente_id = $request->cliente;
+        $arriendos->save();
+        return redirect()->route('arriendos.index');
     }
 
     /**

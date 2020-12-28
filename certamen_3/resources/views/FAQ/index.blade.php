@@ -14,8 +14,10 @@
                 <h3>¿Quienes Somos?</h3>
                 <p>Somos una nueva empresa de alquiler de autos en Chile, expertos en brindarte el mejor vehiculo para ti, ajustandonos a tus gustos y con variedad de autos a lo largo de todo el País.</p>
                 <hr>
-                <h3>¿Debo tener alguna edad mínima para poder alquilar un vehículo?</h3>
-                <p>La respuesta es sí, debes tener un minimo de 35 años para poder optar a arrendar un auto.</p>
+                <h3>¿Que necesito para alquilar un vehículo?</h3>
+                <p><i class="fas fa-hand-point-right text-dark"></i> Cumplir la edad mínima estipulada (desde 35 años)</p>
+                <p><i class="fas fa-hand-point-right text-dark"></i> Presentar licencia de conducir vigente y documento de identidad</p>
+                <p><i class="fas fa-hand-point-right text-dark"></i> Presentar una tarjeta de crédito en el nombre del arrendatario </p>
                 <hr>
                 <h3>¿Cuanto es el mínimo y máximo de días para realizar un arriendo?</h3>
                 <p>El mínimo de días que puedes arrendar un vehiculo es de 2 días, y el máximo es de 30 días.</p>
@@ -41,6 +43,15 @@
             </div>
             <div class="col-10 offset-1 col-lg-3 offset-lg-0 bg-primary">
                 <img src="{{asset('/images/aa.png')}}" alt="Licenciado por Audi" width="300px">
+            </div>
+        </div>
+        <div class="row bg-primary text-light">
+            <div class="col-12">
+                <h4 class="col-12">Redes Sociales:</h4>
+                <h4 class="pl-5"><i class="fab fa-instagram"></i><i class="fad fa-at pl-3"></i>Rentcarz</h4>
+                <h4 class="pl-5"><i class="fab fa-facebook-square pr-3"></i>RentCarz Oficial</h4>
+                <h4 class="pl-5"><i class="fab fa-twitter-square pr-3"></i>RentCarz Oficial</h4>
+                <h4 class="pl-5"><i class="fas fa-envelope pr-3"></i>contacto<i class="fas fa-at"></i>rentCarz.cl</h4>
             </div>
         </div>
     </div>

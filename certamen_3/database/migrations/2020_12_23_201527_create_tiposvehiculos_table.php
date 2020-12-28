@@ -20,6 +20,7 @@ class CreateTiposvehiculosTable extends Migration
             $table->string('combustible');
             $table->string('motor');
             $table->integer('puertas');
+            $table->integer('precio');
             $table->string('clase');
             $table->timestamps();
         });
