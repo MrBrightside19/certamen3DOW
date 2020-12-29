@@ -12,16 +12,9 @@ class Auto extends Model
 
     public function tiposvehiculo(){
         return $this->belongsTo('App\Models\TipoVehiculo');
-
-        
     }
 
     public function arriendos(){
-        return $this->belongsTo('App\Models\Arriendo');
+        return $this->hasMany('App\Models\Arriendo');
     }
-
-    // public function clientes(){
-    //     return $this->belongsToMany('App\Models\Cliente')->withPivot('origen','destino','fecha_origen','fecha_destino');
-
-    // }
 }

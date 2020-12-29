@@ -141,15 +141,8 @@
                         <tbody>
                             @foreach ($arriendos as $num=>$arriendo)
                                 <tr>
-                                    <th class="text-center" scope="row">{{$num+1}}</th>
-                                    {{-- select t.marca from tiposvehiculos t, autos a, arriendos ar where a.tiposvehiculos_id = t.auto_id and a.id = ar.auto_id --}}
-                                    
-                                    <td class="text-center">{{DB::table('tiposvehiculos')->join('autos','tiposvehiculos.id','=','autos.tiposvehiculo_id')
-                                                                                        ->join('arriendos','arriendos.auto_id','=','autos.id')
-                                                                                        ->value('tiposvehiculos.marca')}}
-                                    
-                                    
-                                    </td>
+                                    <th class="text-center" scope="row">{{$num+1}}</th>                                    
+                                    <td class="text-center">{{$arriendo->auto->tiposvehiculo->marca}}/{{$arriendo->auto->tiposvehiculo->modelo}}</td>
                                     <td class="text-center">{{$arriendo->origen }}</td>
                                     <td class="text-center">{{$arriendo->destino }}</td>
                                     <td class="text-center">{{$arriendo->fecha_origen }}</td>

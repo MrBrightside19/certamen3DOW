@@ -11,10 +11,6 @@ class Cliente extends Model
     protected $table = 'clientes';
 
     public function arriendos(){
-        return $this->belongsTo('App\Models\Arriendo');
+        return $this->hasMany('App\Models\Arriendo');
     }
-
-    // public function autos(){
-    //     return $this->belongsToMany('App\Models\Auto')->withPivot('origen','destino','fecha_origen','fecha_destino');
-    // }
 }
